@@ -24,7 +24,7 @@ COPY --from=builder /usr/lib/x86_64-linux-gnu/libunwind.so.8 /usr/lib/x86_64-lin
 COPY --from=builder /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libz.so.1 
 COPY --from=builder /usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8 /usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8
 COPY --from=builder /usr/lib/x86_64-linux-gnu/libbfd-2.34-system.so /usr/lib/x86_64-linux-gnu/libbfd-2.34-system.so
-RUN mkdir /tests && cp /bin/ls /tests/seed
+RUN mkdir /testsuite && cp /bin/ls /testsuite/seed
 
 ENTRYPOINT ["honggfuzz", "-f", "/tests", "--"]
 CMD ["/codec-fuzzer"]
